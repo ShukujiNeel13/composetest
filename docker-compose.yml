@@ -5,13 +5,13 @@ services:
     ports:
       - "5000:5000"
     volumes:
+      - .:/usr/src/composetest
       # for development only
       # bind the source fs in host to container fs
-      - .:/usr/src/composetest
     environment:
+      FLASK_ENV: development
       # for development only
       # Flask will reload the changes automatically
       # No need to rebuild the image on code changes.
-      FLASK_ENV: development
   redis:
     image: "redis:alpine"
